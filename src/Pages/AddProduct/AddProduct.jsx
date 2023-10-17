@@ -12,6 +12,15 @@ const AddProduct = () => {
         const img = form.img.value;
         const product = {name, brand, price, type, rating, description, img}
         console.log(product);
+        fetch('http://localhost:5000/products', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(product)
+        })
+        .then(res=> res.json())
+        .then(data=> console.log(data))
     }
     return (
         <div className="my-10 md:my-20 mx-[5%] sm:mx-[10%] p-5 sm:px-14 sm:py-20 rounded-lg bg-gray-100">
@@ -22,7 +31,14 @@ const AddProduct = () => {
                     <input type="text" name="name" required placeholder="Name" className="input input-bordered w-full mt-2" />
                     </label>
                     <label htmlFor="brand">Brand name: 
-                    <input type="text" name="brand" required placeholder="Brand name" className="input input-bordered w-full mt-2" />
+                    <select className="select select-bordered w-full mt-2" name="brand">
+                        <option selected value="Apple">Apple</option>
+                        <option value="Microsoft">Microsoft</option>
+                        <option value="Dell">Dell</option>
+                        <option value="Lenovo">Lenovo</option>
+                        <option value="Google">Google</option>
+                        <option value="Samsung">Samsung</option>
+                    </select>
                     </label>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
