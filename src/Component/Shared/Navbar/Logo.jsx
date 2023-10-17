@@ -2,7 +2,7 @@
 const Logo = () => {
     return (
         <div>
-            <h1 className="btn btn-ghost normal-case text-xl">Logo</h1>
+            <h1 className="btn btn-ghost normal-case text-xl md:text-2xl lg:text-3xl font-bold">Mazumder</h1>
         </div>
     );
 };
