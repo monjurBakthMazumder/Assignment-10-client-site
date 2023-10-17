@@ -1,9 +1,27 @@
+import { useLoaderData } from "react-router-dom";
 import Banner from "../../Component/Banner/Banner";
+import BrandCard from "../../Component/BrandCard/BrandCard";
 
 const Home = () => {
+    const loadedBrand = useLoaderData()
+    console.log(loadedBrand);
     return (
         <div>
             <Banner/>
+            <div className="my-10">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center px-[5%]">Brand</h1>
+                <p className="text-center my-5">Explore our extensive collection of brands by clicking the provided link to discover more about each brand&#39;s offerings and unique qualities.</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-[5%]">
+                    {
+                        loadedBrand.map(brandData=> 
+                            <BrandCard
+                                key={brandData._id}
+                                brandData={brandData}
+                            />
+                        )
+                    }
+                </div>
+            </div>
         </div>
     );
 };

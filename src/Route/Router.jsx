@@ -8,6 +8,7 @@ import Update from '../Pages/Update/Update';
 import Details from '../Pages/Details/Details';
 import Login from '../Pages/Authentication/Login/Login';
 import Register from '../Pages/Authentication/Register/Register';
+import BrandDetails from '../Pages/BrandDetails/BrandDetails';
 
 const Router = createBrowserRouter([
     {
@@ -17,7 +18,8 @@ const Router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home/>
+                element: <Home/>,
+                loader: ()=> fetch('http://localhost:5000/brand')
             },
             {
                 path: '/add-product',
@@ -30,6 +32,10 @@ const Router = createBrowserRouter([
             {
                 path: '/update/:id',
                 element: <Update/>
+            },
+            {
+                path:'/brand/:brand',
+                element: <BrandDetails/>
             },
             {
                 path: '/Product/:id',
