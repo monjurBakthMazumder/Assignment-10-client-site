@@ -24,7 +24,7 @@ const Navbar = () => {
         <li><NavLink to={'/cart'}>Cart</NavLink></li>
     </>
     return (
-        <nav className="navbar bg-base-100 border-b-2 px-[5%]">
+        <nav className="navbar bg-base-100 border-b-2 px-[5%] sm:px-[10%]">
             <div className="navbar-start">
                 <div className="dropdown">
                 <label tabIndex={0} className="btn btn-ghost lg:hidden">

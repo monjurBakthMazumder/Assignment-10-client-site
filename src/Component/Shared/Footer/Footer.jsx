@@ -1,7 +1,7 @@
 
 const Footer = () => {
     return (
-        <footer className="footer grid-rows-2 px-[5%] py-10 border-t-4">
+        <footer className="footer grid-rows-2 px-[5%] sm:px-[10%] py-10 border-t-4">
             <nav>
                 <header className="footer-title">Services</header> 
                 <a className="link link-hover">Branding</a> 
