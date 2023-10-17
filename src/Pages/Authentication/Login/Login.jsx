@@ -3,6 +3,7 @@ import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import { useState } from "react";
 import useAuth from "../../../Hock/useAuth";
 import Swal from "sweetalert2";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
     const [isShow, setIsShow] = useState(false)
@@ -38,7 +39,8 @@ const Login = () => {
                 <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                <form className="card-body" onSubmit={handleLogin}>
+                    <SocialLogin/>
+                <form className="card-body pt-0" onSubmit={handleLogin}>
                     <div className="form-control">
                     <label className="label">
                         <span className="label-text">Email</span>

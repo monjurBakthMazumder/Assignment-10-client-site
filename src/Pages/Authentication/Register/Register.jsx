@@ -4,6 +4,7 @@ import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import Swal from 'sweetalert2'
 import useAuth from "../../../Hock/useAuth";
 import { updateProfile } from "firebase/auth";
+import SocialLogin from "../SocialLogin/SocialLogin";
 const Register = () => {
     const {createUser , setUser} = useAuth()
     const [isShow, setIsShow] = useState(false)
@@ -70,7 +71,8 @@ const Register = () => {
                 <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                <form className="card-body" onSubmit={handleRegister}>
+                    <SocialLogin/>
+                <form className="card-body pt-0" onSubmit={handleRegister}>
                     <div className="form-control">
                     <label className="label">
                         <span className="label-text">Name</span>
