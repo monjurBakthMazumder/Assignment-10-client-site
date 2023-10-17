@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import Swal from 'sweetalert2'
-
+import useAuth from "../../../Hock/useAuth";
+import { updateProfile } from "firebase/auth";
 const Register = () => {
+    const {createUser , setUser} = useAuth()
     const [isShow, setIsShow] = useState(false)
+    const navigate = useNavigate()
     const handleRegister = e => {
         e.preventDefault();
         const form = e.target;
@@ -12,28 +15,52 @@ const Register = () => {
         const photo = form.photo.value
         const email = form.email.value
         const password = form.password.value
-        console.log(name, photo, email, password);
         if(password.length < 6){
-            Swal.fire(
+            return Swal.fire(
                 'Oops!',
                 'Password must be at least 6 characters',
                 'error'
             ) 
         }
         if(!/[A-Z]/.test(password)){
-            Swal.fire(
+            return Swal.fire(
                 'Oops!',
                 'Password must be at least a capital letter',
                 'error'
             ) 
         }
         if(!/[!@#$%^&*()_+{}[\]:;<>,.?~\\/-]/.test(password)){
-            Swal.fire(
+            return Swal.fire(
                 'Oops!',
                 'Password must be at least a special character',
                 'error'
             ) 
         }
+        // create user
+        createUser(email, password)
+        .then(result=>{
+            navigate('/')
+            Swal.fire(
+                'Successful!',
+                'Create account successfully',
+                'success'
+            )
+            updateProfile(result?.user, {
+                displayName: name, 
+                photoURL: photo
+              })
+            setUser({
+                displayName: name, 
+                photoURL: photo
+            })
+        })
+        .catch(()=> {
+            Swal.fire(
+                'Oops!',
+                'Email already exists',
+                'error'
+            )
+        })
     }
     return (
         <div className="hero min-h-[75vh] my-10">

@@ -1,15 +1,34 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import { useState } from "react";
+import useAuth from "../../../Hock/useAuth";
+import Swal from "sweetalert2";
 
 const Login = () => {
     const [isShow, setIsShow] = useState(false)
+    const {loginUser} = useAuth()
+    const navigate = useNavigate()
     const handleLogin = e => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value
         const password = form.password.value
-        console.log(email, password);
+        loginUser(email, password)
+        .then(() => {
+            navigate('/')
+            Swal.fire(
+                'Login Successful!',
+                'Successfully login',
+                'success'
+            )
+        })
+        .catch(()=> {
+            Swal.fire(
+                'Oops!',
+                'Email or password do not match',
+                'error'
+            )
+        })
     }
     return (
         <div className="hero min-h-[75vh] my-10">
@@ -43,9 +62,6 @@ const Login = () => {
                         >{isShow ? <AiFillEyeInvisible/>: <AiFillEye/>}
                         </p>
                     </div>
-                    <label className="label">
-                        <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                    </label>
                     </div>
                     <div className="form-control mt-6">
                     <button className="btn btn-primary">Login</button>

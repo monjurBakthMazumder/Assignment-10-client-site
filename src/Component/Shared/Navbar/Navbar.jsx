@@ -1,7 +1,22 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Logo from "./Logo";
+import useAuth from "../../../Hock/useAuth";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
+    const {user, logout} = useAuth();
+    const navigate = useNavigate()
+    const handleLogout = () => {
+        logout()
+        .then(()=>{
+            navigate('/')
+            Swal.fire(
+                'Logout successful!',
+                'Successfully logout',
+                'success'
+            )
+        })
+    }
     const navLink = 
     <>
         <li><NavLink to={'/'}>Home</NavLink></li>
@@ -27,7 +42,23 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to={'/login'} className="btn">Login</Link>
+                {
+                    !user
+                    ?
+                    <Link to={'/login'} className="btn">Login</Link>
+                    :
+                    <div className="dropdown dropdown-end">
+                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                            <div className="w-10 rounded-full">
+                            <img src={user?.photoURL} />
+                            </div>
+                        </label>
+                        <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-60">
+                            <li><a>{user?.displayName?.slice(0,35)}</a></li>
+                            <li onClick={handleLogout}><a>Logout</a></li>
+                        </ul>
+                    </div>
+                }
             </div>
         </nav>
     );
