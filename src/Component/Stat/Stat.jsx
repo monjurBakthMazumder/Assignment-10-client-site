@@ -1,7 +1,7 @@
 
 const Stat = () => {
     return (
-        <div className="mx-[5%] sm:mx-[10%] md:p-10">
+        <div className="px-[5%] sm:px-[10%]">
             <div className="stats shadow text-center w-full">
                 <div className="stat">
                     <div className="stat-figure text-secondary">
