@@ -3,6 +3,7 @@ import Banner from "../../Component/Banner/Banner";
 import BrandCard from "../../Component/BrandCard/BrandCard";
 import Contact from "../../Component/Contact/Contact";
 import FAQ from "../../Component/FAQ/FAQ";
+import Stat from "../../Component/Stat/Stat";
 
 const Home = () => {
     const loadedBrand = useLoaderData()
@@ -23,6 +24,7 @@ const Home = () => {
                     }
                 </div>
             </div>
+            <Stat/>
             <FAQ/>
             <Contact/>
         </div>
