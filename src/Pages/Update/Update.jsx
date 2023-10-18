@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 const Update = () => {
     const loadedData = useLoaderData()
     console.log(loadedData[0]);
-    const {name, brand, price, type, rating, description, img} = loadedData[0] || {};
+    const {_id, name, brand, price, type, rating, description, img} = loadedData[0] || {};
     const navigate = useNavigate()
     const handleGoBack = () => {
         navigate(-1)
@@ -21,7 +21,7 @@ const Update = () => {
         const img = form.img.value;
         const updateProduct = {name, brand, price, type, rating, description, img}
         console.log(updateProduct);
-        fetch('http://localhost:5000/products', {
+        fetch(`http://localhost:5000/product/${_id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -30,10 +30,11 @@ const Update = () => {
         })
         .then(res=> res.json())
         .then(data=> {
+            console.log(data);
             if(data.acknowledged){
                 Swal.fire(
-                    'Successful created!',
-                    'Create a product successfully',
+                    'Successful Update!',
+                    'Update product successfully',
                     'success'
                 )
             }
@@ -82,7 +83,7 @@ const Update = () => {
                         <input type="text" name="img" defaultValue={img} required placeholder="Image url" className="input input-bordered w-full mt-2" />
                         </label>
                     </div>
-                    <button className="btn btn-secondary btn-outline btn-block my-5" type="submit">Create</button>
+                    <button className="btn btn-secondary btn-outline btn-block my-5" type="submit">Update</button>
                 </form>
             </div>
         </div>
