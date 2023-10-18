@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 
 const AddProduct = () => {
     const handleSubmit = e => {
@@ -20,7 +21,16 @@ const AddProduct = () => {
             body: JSON.stringify(product)
         })
         .then(res=> res.json())
-        .then(data=> console.log(data))
+        .then(data=> {
+            if(data.acknowledged){
+                Swal.fire(
+                    'Successful created!',
+                    'Create a product successfully',
+                    'success'
+                )
+            }
+            console.log(data)
+        })
     }
     return (
         <div className="my-10 md:my-20 mx-[5%] sm:mx-[10%] p-5 sm:px-14 sm:py-20 rounded-lg bg-gray-100">
