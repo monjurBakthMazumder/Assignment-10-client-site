@@ -3,13 +3,14 @@ import Rating from 'react-rating';
 import { Link } from 'react-router-dom';
 const ProductCard = ({products}) => {
     const  {_id, name, brand, price, type, rating, img} = products || {};
-    console.log(products);
     return (
         <div className='card card-compact border'>
             <figure className="h-48 w-full flex justify-center items-center"><img src={img} alt={`image of ${name}`} className="h-full w-fit"/></figure>
-                <div className="card-body">
+                <div className="card-body text-center">
                   <span><button className="cursor-text btn btn-secondary btn-xs border-t-pink-600">${price}</button></span>
-                  <h2 className="card-title">{name}</h2>
+                  <h2 className="card-title mx-auto">{name}</h2>
+                  <h2><span className="border rounded-full px-2 py-[2px] border-black text-xs">{brand}</span></h2>
+                  <p><b>Type: </b>{type}</p>
                   <Rating
                     emptySymbol={
                         <svg
@@ -44,11 +45,10 @@ const ProductCard = ({products}) => {
                     initialRating={rating}
                     readonly
                 />
-                  <h2 className="flex flex-wrap justify-end items-center gap-1"><span className="border rounded-full px-2 py-[2px] border-black text-xs">{type}</span> <span className="border rounded-full px-2 py-[2px] border-black text-xs">{brand}</span></h2>
-                  <div className="card-actions justify-center">
-                    <Link to={`/Product/${_id}`} className="mt-1 mb-3 underline text-pink-600" >Details</Link>
+                  <div className="card-actions justify-center mt-3">
+                    <Link to={`/product/${_id}`} className="btn btn-secondary btn-sm rounded btn-outline" >Details</Link>
+                    <Link to={`/update/${_id}`} className="btn btn-secondary btn-sm rounded btn-outline">Update</Link>
                   </div>
-                  <button className="btn btn-secondary btn-outline" id="{product.id}">Update</button>
                 </div>
         </div>
     );
