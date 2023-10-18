@@ -1,14 +1,44 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AiFillDelete } from 'react-icons/ai';
+import Swal from "sweetalert2";
 const Cart = () => {
     const loadedProducts = useLoaderData()
     const[product, setProduct] = useState(loadedProducts)
-    console.log(product);
-    // const {_id, name, brand, price, type, rating, img, description}  = loadedProducts || {}
+    const handleDelete = (id) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/orders/${id}`,{
+                    method: 'DELETE'
+                })
+                .then(res=>res.json())
+                .then(data => {
+                    if(data.deletedCount > 0){
+                        Swal.fire(
+                            'Deleted!',
+                            'Product has been deleted.',
+                            'success'
+                          )
+                    }
+                    const remaining = product?.filter(item=> item._id !== id)
+                    setProduct(remaining)
+                })
+              
+            }
+          })
+    }
     return (
         <>
-        <div className="overflow-x-auto my-20">
+        <div className="overflow-x-auto my-10 px-[5%] sm:px-[10%]">
+            <h1 className="text-xl md:text-2xl lg:text-3xl underline font-bold text-center my-5">Total Product: {product?.length}</h1>
             <table className="table">
                 {/* head */}
                 <thead>
@@ -27,7 +57,7 @@ const Cart = () => {
                 <tbody>
                 {/* row 1 */}
                 {
-                    product.map(item=> 
+                    product?.map(item=> 
                         <tr key={item._id}>
                             <th>
                             <label>
@@ -48,7 +78,7 @@ const Cart = () => {
                             </td>
                             <td>${item?.price}</td>
                             <td>{item?.type}</td>
-                            <th><AiFillDelete className="text-2xl cursor-pointer hover:text-red-700"/></th>
+                            <th><AiFillDelete onClick={()=>handleDelete(item?._id)} className="text-2xl cursor-pointer hover:text-red-700"/></th>
                         </tr>
                     )
                 }

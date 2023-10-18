@@ -3,7 +3,6 @@ import Swal from "sweetalert2";
 
 const Update = () => {
     const loadedData = useLoaderData()
-    console.log(loadedData[0]);
     const {_id, name, brand, price, type, rating, description, img} = loadedData[0] || {};
     const navigate = useNavigate()
     const handleGoBack = () => {
@@ -20,7 +19,6 @@ const Update = () => {
         const description = form.description.value;
         const img = form.img.value;
         const updateProduct = {name, brand, price, type, rating, description, img}
-        console.log(updateProduct);
         fetch(`http://localhost:5000/product/${_id}`, {
             method: 'PUT',
             headers: {
@@ -30,7 +28,6 @@ const Update = () => {
         })
         .then(res=> res.json())
         .then(data=> {
-            console.log(data);
             if(data.acknowledged){
                 Swal.fire(
                     'Successful Update!',
@@ -38,7 +35,6 @@ const Update = () => {
                     'success'
                 )
             }
-            console.log(data)
         })
     }
     return (

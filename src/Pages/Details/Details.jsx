@@ -20,7 +20,6 @@ const Details = () => {
         })
         .then(res=> res.json())
         .then(data=> {
-            console.log(data);
             if(data.acknowledged){
                 Swal.fire(
                     'Successful created!',
@@ -41,8 +40,8 @@ const Details = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-10 px-[5%] sm:px-[10%] card-body">
             <figure className="w-full"><img src={img} alt={`image of ${name}`} className="w-full"/></figure>
                 <div className="space-y-3">
-                  <span><button className="cursor-text btn btn-secondary btn-xs border-t-pink-600">${price}</button></span>
                   <h2 className="card-title text-2xl lg:text-3xl">{name}</h2>
+                  <span><button className="cursor-text btn btn-secondary btn-xs border-t-pink-600 block mt-5">${price}</button></span>
                   <Rating
                     emptySymbol={
                         <svg

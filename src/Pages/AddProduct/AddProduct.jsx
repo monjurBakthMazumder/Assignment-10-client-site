@@ -12,7 +12,6 @@ const AddProduct = () => {
         const description = form.description.value;
         const img = form.img.value;
         const product = {name, brand, price, type, rating, description, img}
-        console.log(product);
         fetch('http://localhost:5000/products', {
             method: 'POST',
             headers: {
@@ -28,8 +27,8 @@ const AddProduct = () => {
                     'Create a product successfully',
                     'success'
                 )
+                form.reset()
             }
-            console.log(data)
         })
     }
     return (
