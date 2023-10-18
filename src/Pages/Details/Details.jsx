@@ -1,12 +1,41 @@
 import Rating from "react-rating";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Details = () => {
     const loadedProduct = useLoaderData()
-    const {name, brand, price, type, rating, img, description}  = loadedProduct[0] || {}
+    const {_id, name, brand, price, type, rating, img, description}  = loadedProduct[0] || {}
     const navigate = useNavigate()
     const handleGoBack = () => {
         navigate(-1)
+    }
+    const cut = {id:_id, name, brand, price, type, rating, img, description}
+    const handleCut = () => {
+        fetch('http://localhost:5000/orders',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(cut)
+        })
+        .then(res=> res.json())
+        .then(data=> {
+            console.log(data);
+            if(data.acknowledged){
+                Swal.fire(
+                    'Successful created!',
+                    'Create a product successfully',
+                    'success'
+                )
+            }
+        })
+        .catch(()=>{
+            Swal.fire(
+                'Oops!',
+                'Already added to cut',
+                'error',
+            )
+        })
     }
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-10 px-[5%] sm:px-[10%] card-body">
@@ -55,7 +84,7 @@ const Details = () => {
                   </div>
                   <div className="flex items-center gap-5"> 
                     <button className="btn btn-secondary btn-outline" onClick={handleGoBack}>Go Back</button>
-                    <button className="btn btn-secondary btn-outline">Add to cut</button>
+                    <button className="btn btn-secondary btn-outline" onClick={handleCut}>Add to cut</button>
                   </div>
                 </div>
         </div>

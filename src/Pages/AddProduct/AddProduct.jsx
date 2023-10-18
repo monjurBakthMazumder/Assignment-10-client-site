@@ -41,8 +41,8 @@ const AddProduct = () => {
                     <input type="text" name="name" required placeholder="Name" className="input input-bordered w-full mt-2" />
                     </label>
                     <label htmlFor="brand">Brand name: 
-                    <select className="select select-bordered w-full mt-2" name="brand">
-                        <option selected value="Apple">Apple</option>
+                    <select className="select select-bordered w-full mt-2" name="brand" defaultValue={"Apple"}>
+                        <option value="Apple">Apple</option>
                         <option value="Microsoft">Microsoft</option>
                         <option value="Dell">Dell</option>
                         <option value="Lenovo">Lenovo</option>
