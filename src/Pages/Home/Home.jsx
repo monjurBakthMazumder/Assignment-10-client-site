@@ -5,6 +5,7 @@ import Contact from "../../Component/Contact/Contact";
 import FAQ from "../../Component/FAQ/FAQ";
 import Stat from "../../Component/Stat/Stat";
 import DealOfTheDay from "../../Component/DealOfTheDay/DealOfTheDay";
+import Service from "../../Component/Service/Service";
 
 const Home = () => {
     const loadedBrand = useLoaderData()
@@ -26,6 +27,7 @@ const Home = () => {
                 </div>
             </div>
             <DealOfTheDay/>
+            <Service/>
             <Stat/>
             <FAQ/>
             <Contact/>

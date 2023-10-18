@@ -61,7 +61,7 @@ const FAQ = () => {
                     </div>
                 </div>
                 <div className="flex-1  ">
-                    <img src="https://th.bing.com/th/id/R.6b16070f8217a737fc23780bd4bef530?rik=OKsr%2fbfdAJ%2fdBg&pid=ImgRaw&r=0" alt="" />
+                    <img src="https://th.bing.com/th/id/R.6b16070f8217a737fc23780bd4bef530?rik=OKsr%2fbfdAJ%2fdBg&pid=ImgRaw&r=0" alt="" className="w-full"/>
                 </div>
             </div>
         </div>
