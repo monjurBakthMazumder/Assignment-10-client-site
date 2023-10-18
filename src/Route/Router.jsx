@@ -9,6 +9,7 @@ import Details from '../Pages/Details/Details';
 import Login from '../Pages/Authentication/Login/Login';
 import Register from '../Pages/Authentication/Register/Register';
 import BrandDetails from '../Pages/BrandDetails/BrandDetails';
+import PrivateRoute from './PrivateRoute';
 
 const Router = createBrowserRouter([
     {
@@ -23,16 +24,16 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/add-product',
-                element: <AddProduct/>
+                element: <PrivateRoute><AddProduct/></PrivateRoute>
             },
             {
                 path: '/cart',
-                element: <Cart/>,
+                element: <PrivateRoute><Cart/></PrivateRoute>,
                 loader: ()=> fetch('http://localhost:5000/orders')
             },
             {
                 path: '/update/:id',
-                element: <Update/>,
+                element: <PrivateRoute><Update/></PrivateRoute>,
                 loader: ({params})=> fetch(`http://localhost:5000/product/${params.id}`)
             },
             {
@@ -42,7 +43,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/product/:id',
-                element: <Details/>,
+                element: <PrivateRoute><Details/></PrivateRoute>,
                 loader: ({params})=> fetch(`http://localhost:5000/product/${params.id}`)
             },
             {
