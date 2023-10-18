@@ -46,7 +46,7 @@ const ProductCard = ({products}) => {
                 />
                   <h2 className="flex flex-wrap justify-end items-center gap-1"><span className="border rounded-full px-2 py-[2px] border-black text-xs">{type}</span> <span className="border rounded-full px-2 py-[2px] border-black text-xs">{brand}</span></h2>
                   <div className="card-actions justify-center">
-                    <Link to={`/${_id}`} className="mt-1 mb-3 underline text-pink-600" >Details</Link>
+                    <Link to={`/Product/${_id}`} className="mt-1 mb-3 underline text-pink-600" >Details</Link>
                   </div>
                   <button className="btn btn-secondary btn-outline" id="{product.id}">Update</button>
                 </div>
