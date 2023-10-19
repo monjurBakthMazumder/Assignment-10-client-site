@@ -43,10 +43,8 @@ const AddProduct = () => {
                     <select className="select select-bordered w-full mt-2" name="brand" defaultValue={"Apple"}>
                         <option value="Apple">Apple</option>
                         <option value="LG">LG</option>
-                        <option value="Microsoft">Microsoft</option>
                         <option value="Dell">Dell</option>
                         <option value="Lenovo">Lenovo</option>
-                        <option value="Google">Google</option>
                         <option value="Samsung">Samsung</option>
                         <option value="Sony">Sony</option>
                         <option value="Intel">Intel</option>
