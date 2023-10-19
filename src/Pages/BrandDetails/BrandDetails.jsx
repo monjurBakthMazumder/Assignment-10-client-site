@@ -11,7 +11,7 @@ const BrandDetails = () => {
     // console.log(brand.brand)
     
     useEffect(()=> {
-        fetch('https://server-site-45slczu5o-md-monjur-bakth-mazumders-projects.vercel.app/brand')
+        fetch('https://server-site-chi.vercel.app/brand')
         .then(res=> res.json())
         .then(data=> setData(data))
         

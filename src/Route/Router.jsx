@@ -20,7 +20,7 @@ const Router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home/>,
-                loader: ()=> fetch('https://server-site-45slczu5o-md-monjur-bakth-mazumders-projects.vercel.app/brand')
+                loader: ()=> fetch('https://server-site-chi.vercel.app/brand')
             },
             {
                 path: '/add-product',
@@ -29,22 +29,22 @@ const Router = createBrowserRouter([
             {
                 path: '/cart',
                 element: <PrivateRoute><Cart/></PrivateRoute>,
-                loader: ()=> fetch('https://server-site-45slczu5o-md-monjur-bakth-mazumders-projects.vercel.app/orders')
+                loader: ()=> fetch('https://server-site-chi.vercel.app/orders')
             },
             {
                 path: '/update/:id',
                 element: <PrivateRoute><Update/></PrivateRoute>,
-                loader: ({params})=> fetch(`https://server-site-45slczu5o-md-monjur-bakth-mazumders-projects.vercel.app/product/${params.id}`)
+                loader: ({params})=> fetch(`https://server-site-chi.vercel.app/product/${params.id}`)
             },
             {
                 path:'/brand/:brand',
                 element: <BrandDetails/>,
-                loader: ({params})=> fetch(`https://server-site-45slczu5o-md-monjur-bakth-mazumders-projects.vercel.app/products/${params.brand}`)
+                loader: ({params})=> fetch(`https://server-site-chi.vercel.app/products/${params.brand}`)
             },
             {
                 path: '/product/:id',
                 element: <PrivateRoute><Details/></PrivateRoute>,
-                loader: ({params})=> fetch(`https://server-site-45slczu5o-md-monjur-bakth-mazumders-projects.vercel.app/product/${params.id}`)
+                loader: ({params})=> fetch(`https://server-site-chi.vercel.app/product/${params.id}`)
             },
             {
                 path: '/login',

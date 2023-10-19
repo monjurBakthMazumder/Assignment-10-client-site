@@ -12,7 +12,7 @@ const AddProduct = () => {
         const description = form.description.value;
         const img = form.img.value;
         const product = {name, brand, price, type, rating, description, img}
-        fetch('https://server-site-45slczu5o-md-monjur-bakth-mazumders-projects.vercel.app/products', {
+        fetch('https://server-site-chi.vercel.app/products', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
