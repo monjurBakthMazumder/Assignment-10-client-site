@@ -25,7 +25,7 @@ const SocialLogin = () => {
     }
     return (
         <div className="p-8 pb-0">
-            <button className="btn w-full" onClick={handleGoogleLogin}>Login with Google</button>
+            <button className="btn btn-secondary w-full" onClick={handleGoogleLogin}>Login with Google</button>
             <div className="divider pb-0">OR</div>
         </div>
     );

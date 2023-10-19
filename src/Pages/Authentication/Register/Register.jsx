@@ -70,37 +70,37 @@ const Register = () => {
                 <h1 className="text-5xl font-bold">Register now!</h1>
                 <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                 </div>
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl border text-secondary">
                     <SocialLogin/>
                 <form className="card-body pt-0" onSubmit={handleRegister}>
                     <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Name</span>
+                        <span className="label-text text-secondary">Name</span>
                     </label>
-                    <input type="text" placeholder="Your name" name="name" className="input input-bordered" required />
+                    <input type="text" placeholder="Your name" name="name" className="input input-bordered bg-transparent border-secondary" required />
                     </div>
                     <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Photo url</span>
+                        <span className="label-text text-secondary">Photo url</span>
                     </label>
-                    <input type="text" placeholder="Photo url" name="photo" className="input input-bordered" required />
+                    <input type="text" placeholder="Photo url" name="photo" className="input input-bordered bg-transparent border-secondary" required />
                     </div>
                     <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Email</span>
+                        <span className="label-text text-secondary">Email</span>
                     </label>
-                    <input type="email" placeholder="Email" name="email" className="input input-bordered" required />
+                    <input type="email" placeholder="Email" name="email" className="input input-bordered bg-transparent border-secondary" required />
                     </div>
                     <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Password</span>
+                        <span className="label-text text-secondary">Password</span>
                     </label>
                     <div className="relative">
                         <input 
                             type={isShow ? "text" : "password"} 
                             placeholder="Password" 
                             name="password" 
-                            className="input input-bordered w-full" 
+                            className="input input-bordered bg-transparent border-secondary w-full" 
                             required />
                         <p 
                             className="absolute top-3 right-3 text-2xl" 
@@ -110,7 +110,7 @@ const Register = () => {
                     </div>
                     </div>
                     <div className="form-control mt-6">
-                    <button className="btn btn-primary">Register</button>
+                    <button className="btn btn-secondary ">Register</button>
                     </div>
                     <p className="text-center text-xs mt-5">Already have account? Please <Link to={'/login'} className="underline font-bold cursor-pointer text-blue-600">login</Link></p>
                 </form>

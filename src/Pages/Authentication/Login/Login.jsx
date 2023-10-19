@@ -38,18 +38,18 @@ const Login = () => {
                 <h1 className="text-5xl font-bold">Login now!</h1>
                 <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                 </div>
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl border text-secondary">
                     <SocialLogin/>
                 <form className="card-body pt-0" onSubmit={handleLogin}>
                     <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Email</span>
+                        <span className="label-text text-secondary" >Email</span>
                     </label>
                     <input type="email" placeholder="Email" name="email" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Password</span>
+                        <span className="label-text text-secondary" >Password</span>
                     </label>
                     <div className="relative">
                         <input 
@@ -66,7 +66,7 @@ const Login = () => {
                     </div>
                     </div>
                     <div className="form-control mt-6">
-                    <button className="btn btn-primary">Login</button>
+                    <button className="btn btn-secondary">Login</button>
                     </div>
                     <p className="text-center text-xs mt-5">New Here? Please <Link to={'/register'} className="underline font-bold cursor-pointer text-blue-600">register</Link></p>
                 </form>
