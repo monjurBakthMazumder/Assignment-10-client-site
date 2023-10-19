@@ -11,7 +11,7 @@ const Details = () => {
     }
     const cut = {id:_id, name, brand, price, type, rating, img, description}
     const handleCut = () => {
-        fetch('http://localhost:5000/orders',{
+        fetch('https://server-site-45slczu5o-md-monjur-bakth-mazumders-projects.vercel.app/orders',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
