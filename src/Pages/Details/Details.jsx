@@ -22,8 +22,8 @@ const Details = () => {
         .then(data=> {
             if(data.acknowledged){
                 Swal.fire(
-                    'Successful created!',
-                    'Create a product successfully',
+                    'Successful!',
+                    'Add to cut successfully',
                     'success'
                 )
             }
