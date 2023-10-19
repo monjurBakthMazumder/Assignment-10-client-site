@@ -42,7 +42,7 @@ const Cart = () => {
             <table className="table">
                 {/* head */}
                 <thead>
-                <tr>
+                <tr className="text-secondary text-xl"> 
                     <th>
                     <label>
                         <input type="checkbox" className="checkbox" />

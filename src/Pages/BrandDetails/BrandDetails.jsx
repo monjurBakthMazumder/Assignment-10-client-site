@@ -14,10 +14,14 @@ const BrandDetails = () => {
         fetch('https://server-site-45slczu5o-md-monjur-bakth-mazumders-projects.vercel.app/brand')
         .then(res=> res.json())
         .then(data=> setData(data))
+        
+    },[])
+    useEffect(()=>{
         const filterBrand = data?.find(item=> item?.brand === brand?.brand)
-        setBanner(filterBrand);
-    },[brand?.brand,data])
-    // console.log(banner);
+            setBanner(filterBrand);
+            console.log(filterBrand);
+
+    },[banner, brand?.brand, data])
     return (
         <>
             <div className="carousel w-full h-[75vh]">
