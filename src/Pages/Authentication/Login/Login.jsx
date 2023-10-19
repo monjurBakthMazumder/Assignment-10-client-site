@@ -45,7 +45,7 @@ const Login = () => {
                     <label className="label">
                         <span className="label-text text-secondary" >Email</span>
                     </label>
-                    <input type="email" placeholder="Email" name="email" className="input input-bordered" required />
+                    <input type="email" placeholder="Email" name="email" className="input input-bordered bg-transparent border-secondary" required />
                     </div>
                     <div className="form-control">
                     <label className="label">
@@ -56,7 +56,7 @@ const Login = () => {
                             type={isShow ? "text" : "password"} 
                             placeholder="Password" 
                             name="password" 
-                            className="input input-bordered w-full" 
+                            className="input input-bordered bg-transparent border-secondary w-full" 
                             required />
                         <p 
                             className="absolute top-3 right-3 text-2xl" 
