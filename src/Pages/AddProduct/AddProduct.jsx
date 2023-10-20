@@ -63,13 +63,13 @@ const AddProduct = () => {
                     <label htmlFor="rating">Rating: 
                     <input type="number" name="rating" required placeholder="Rating" className="input input-bordered bg-transparent border-secondary w-full mt-2" />
                     </label>
-                    <label htmlFor="Description">Description: 
-                    <input type="text" name="description" required placeholder="Description" className="input input-bordered bg-transparent border-secondary w-full mt-2" />
+                    <label htmlFor="img">Image url: 
+                    <input type="text" name="img" required placeholder="Image url" className="input input-bordered bg-transparent border-secondary w-full mt-2" />
                     </label>
                 </div>
                 <div className="grid grid-cols-1 gap-5 mb-5">
-                    <label htmlFor="img">Image url: 
-                    <input type="text" name="img" required placeholder="Image url" className="input input-bordered bg-transparent border-secondary w-full mt-2" />
+                <label htmlFor="Description">Description: 
+                    <textarea className="textarea bg-transparent border-secondary w-full mt-2 resize-none"  type="text" name="description" required placeholder="Description" ></textarea>
                     </label>
                 </div>
                 <button className="btn btn-secondary btn-outline btn-block my-5" type="submit">Create</button>

@@ -37,55 +37,61 @@ const Cart = () => {
     }
     return (
         <>
-        <div className="overflow-x-auto my-10 px-[5%] sm:px-[10%]">
-            <h1 className="text-xl md:text-2xl lg:text-3xl underline font-bold text-center my-5">Total Product: {product?.length}</h1>
-            <table className="table">
-                {/* head */}
-                <thead>
-                <tr className="text-secondary text-xl"> 
-                    <th>
-                    <label>
-                        <input type="checkbox" className="checkbox" />
-                    </label>
-                    </th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Type</th>
-                    <th>Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                {/* row 1 */}
-                {
-                    product?.map(item=> 
-                        <tr key={item._id}>
-                            <th>
-                            <label>
-                                <input type="checkbox" className="checkbox" />
-                            </label>
-                            </th>
-                            <td>
-                            <div className="flex items-center space-x-3">
-                                <div className="avatar">
-                                <div className="mask mask-squircle w-12 h-12">
-                                    <img src={item?.img} alt="Avatar Tailwind CSS Component" />
+        {
+            product?.length < 1
+            ?
+            <h1 className="text-xl md:text-2xl lg:text-4xl font-bold flex justify-center items-center h-[75vh]">No Product added</h1>
+            :
+            <div className="overflow-x-auto my-10 px-[5%] sm:px-[10%]">
+                <h1 className="text-xl md:text-2xl lg:text-3xl underline font-bold text-center my-5">Total Product: {product?.length}</h1>
+                <table className="table">
+                    {/* head */}
+                    <thead>
+                    <tr className="text-secondary text-xl"> 
+                        <th>
+                        <label>
+                            <input type="checkbox" className="checkbox" />
+                        </label>
+                        </th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Type</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {/* row 1 */}
+                    {
+                        product?.map(item=> 
+                            <tr key={item._id}>
+                                <th>
+                                <label>
+                                    <input type="checkbox" className="checkbox" />
+                                </label>
+                                </th>
+                                <td>
+                                <div className="flex items-center space-x-3">
+                                    <div className="avatar">
+                                    <div className="mask mask-squircle w-12 h-12">
+                                        <img src={item?.img} alt="Avatar Tailwind CSS Component" />
+                                    </div>
+                                    </div>
+                                    <div>
+                                    <div className="font-bold">{item?.name}</div>
+                                    </div>
                                 </div>
-                                </div>
-                                <div>
-                                <div className="font-bold">{item?.name}</div>
-                                </div>
-                            </div>
-                            </td>
-                            <td>${item?.price}</td>
-                            <td>{item?.type}</td>
-                            <th><AiFillDelete onClick={()=>handleDelete(item?._id)} className="text-2xl cursor-pointer hover:text-red-700"/></th>
-                        </tr>
-                    )
-                }
-                
-                </tbody>
-            </table>
-        </div>
+                                </td>
+                                <td>${item?.price}</td>
+                                <td>{item?.type}</td>
+                                <th><AiFillDelete onClick={()=>handleDelete(item?._id)} className="text-2xl cursor-pointer hover:text-red-700"/></th>
+                            </tr>
+                        )
+                    }
+                    
+                    </tbody>
+                </table>
+            </div>
+        }
         </>
     );
 };
