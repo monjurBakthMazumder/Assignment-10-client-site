@@ -1,6 +1,6 @@
 # Mazumder
 
-- [Live Link](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md)
+- [Live Link](https://assignment-10-8bc7f.web.app/)
 
 Some features of my website
 - My website is a Technology and Electronics based website.  Here you will find products of 7 brands.
