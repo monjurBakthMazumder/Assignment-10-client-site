@@ -19,8 +19,6 @@ const BrandDetails = () => {
     useEffect(()=>{
         const filterBrand = data?.find(item=> item?.brand === brand?.brand)
             setBanner(filterBrand);
-            console.log(filterBrand);
-
     },[banner, brand?.brand, data])
     return (
         <>

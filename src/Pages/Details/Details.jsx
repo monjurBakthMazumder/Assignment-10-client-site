@@ -1,15 +1,18 @@
 import Rating from "react-rating";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAuth from "../../Hock/useAuth";
 
 const Details = () => {
     const loadedProduct = useLoaderData()
-    const {_id, name, brand, price, type, rating, img, description}  = loadedProduct[0] || {}
+    const {user} = useAuth()
+    const { name, brand, price, type, rating, img, description}  = loadedProduct[0] || {}
     const navigate = useNavigate()
     const handleGoBack = () => {
         navigate(-1)
     }
-    const cut = {id:_id, name, brand, price, type, rating, img, description}
+    const email = user.email
+    const cut = { name, brand, price, type, rating, img, description, email }
     const handleCut = () => {
         fetch('https://server-site-chi.vercel.app/orders',{
             method: 'POST',

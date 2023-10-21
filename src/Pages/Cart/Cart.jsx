@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AiFillDelete } from 'react-icons/ai';
 import Swal from "sweetalert2";
+import useAuth from "../../Hock/useAuth";
 const Cart = () => {
     const loadedProducts = useLoaderData()
-    const[product, setProduct] = useState(loadedProducts)
+    const  {user} = useAuth()
+    const[product,  setProduct] = useState([])
     const handleDelete = (id) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -35,6 +37,11 @@ const Cart = () => {
             }
           })
     }
+    const email = user.email
+    useEffect(()=>{
+        const filterByEmail = loadedProducts?.filter(item=> item.email === email)
+        setProduct(filterByEmail)
+    },[loadedProducts, email])
     return (
         <>
         {

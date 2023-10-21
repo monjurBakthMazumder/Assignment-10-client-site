@@ -52,7 +52,8 @@ const Register = () => {
               })
             setUser({
                 displayName: name, 
-                photoURL: photo
+                photoURL: photo,
+                email: email,
             })
         })
         .catch(()=> {
