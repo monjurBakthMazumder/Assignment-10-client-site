@@ -9,6 +9,8 @@ const Register = () => {
     const {createUser , setUser} = useAuth()
     const [isShow, setIsShow] = useState(false)
     const navigate = useNavigate()
+    const loc = localStorage.getItem('location')
+
     const handleRegister = e => {
         e.preventDefault();
         const form = e.target;
@@ -40,7 +42,7 @@ const Register = () => {
         // create user
         createUser(email, password)
         .then(result=>{
-            navigate('/')
+            navigate(loc ? loc : '/')
             Swal.fire(
                 'Successful!',
                 'Create account successfully',

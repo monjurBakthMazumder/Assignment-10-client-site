@@ -9,6 +9,7 @@ const Login = () => {
     const [isShow, setIsShow] = useState(false)
     const {loginUser} = useAuth()
     const navigate = useNavigate()
+    const loc = localStorage.getItem('location')
     const handleLogin = e => {
         e.preventDefault();
         const form = e.target;
@@ -16,7 +17,7 @@ const Login = () => {
         const password = form.password.value
         loginUser(email, password)
         .then(() => {
-            navigate('/')
+            navigate(loc ? loc : '/')
             Swal.fire(
                 'Login Successful!',
                 'Successfully login',
