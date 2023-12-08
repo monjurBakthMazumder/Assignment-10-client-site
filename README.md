@@ -1,6 +1,16 @@
 # Mazumder
 
 - [Live Link](https://assignment-10-8bc7f.web.app/)
+ - [Server site github link](https://github.com/monjurBakthMazumder/Assignment-10-server-site)
+
+Technology used-
+- React js
+- firebase 
+- daisyUI 
+- mongodb
+- node js
+- express js
+
 
 Some features of my website
 - My website is a Technology and Electronics based website.  Here you will find products of 7 brands.
